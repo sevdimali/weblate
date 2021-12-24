@@ -206,7 +206,7 @@ class AuditLogManager(models.Manager):
     def is_new_login(self, user, address, user_agent):
         """Checks whether this login is coming from a new device.
 
-        Currently based purely on the IP address.
+        Currently, based purely on the IP address.
         """
         logins = self.filter(user=user, activity="login-new")
 
@@ -232,7 +232,7 @@ class AuditLogManager(models.Manager):
 
 class AuditLogQuerySet(models.QuerySet):
     def get_after(self, user, after, activity):
-        """Get user activites of given type after another activity.
+        """Get user activities of given type after another activity.
 
         This is mostly used for rate limiting, as it can return the number of failed
         authentication attempts since last login.
